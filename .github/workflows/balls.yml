@@ -1,0 +1,19 @@
+name: Tailscale Auth
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  tailscale-auth:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Authenticate to Tailscale
+        uses: tailscale/github-action@v3
+        with:
+          authkey: ${{ secrets.TAILSCALE_AUTHKEY }}
+          statedir: /tmp/tailscale-state/
