@@ -2,7 +2,7 @@ name: Tailscale Auth
 
 on:
   push:
-    branches:
+    branches: # s
       - main
 
 jobs:
